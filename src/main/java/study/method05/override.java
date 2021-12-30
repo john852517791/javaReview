@@ -5,20 +5,14 @@ package study.method05;/*
  *@Version: 1.0
  */
 
-public class override {
+import study.objectOriented04.person;
+
+public class override extends person {
     public static void main(String[] args) {
-        sample sample = new sample();
-        sample.foobar();
-        sample.foobar(1,2);
+        override overrule = new override();
+        overrule.drink();
     }
-}
-
-class sample{
-    public void foobar(){
-        System.out.println("无参");
+    public void drink(){
+        System.out.println("override");
     }
-    public void foobar(int i,int j){
-        System.out.println("有参");
-    }
-
 }
