@@ -417,7 +417,7 @@ A instanceof B
 
 ## override
 
-复写的概念和继承相关
+覆写的概念和继承相关
 
 在继承关系中，子类继承了父类的方法和变量，但有些时候子类需要方法操作与父类有些许不同，因此就需要复写这个方法
 
@@ -425,11 +425,136 @@ A instanceof B
 
 
 
-⭐Question：override和overrule很容易搞混，一不小心形式参数写的不一致就会造成“本来想复写”，结果变成了复写
+⭐Question：override和overload很容易搞混，一不小心形式参数写的不一致就会造成“本来想覆写”，结果变成了重载
 
-解决方式——加@overrule注解，这样的话如果形参写错了会直接报错
+解决方式——加@override注解，这样的话如果形参写错了会直接报错
 
 
 
 ## polymorphism
+
+多态
+
+由于java中，创建子类对象能被父类所接住，即如下【父类为person，子类为student】
+
+```java
+person stu = new student();
+```
+
+这就很自然的出现疑问：
+
+按照上述方法创建的对象stu，我调用的this，到底是person的还是student的
+
+答案：new后面是啥，this指的就是啥
+
+⭐应用场景①：需要管理学生成绩，而学生中不同学院的学生成绩计算方法可能不一致，55开37开都有，怎那么统一管理学生还能区分不同计算方法来计算成绩呢？
+
+——我们可以构造一棵继承树，不同学院的学生继承自一个统一的父类，父类中有计算成绩的方法，让子类来覆写方法即可，如下
+
+```java
+public class polymorphism {
+    public static void main(String[] args) {
+        student[] stus={
+                new stuOfAI(80,60),
+                new stuOfEC(80,60)
+        };
+        for (student stu:stus
+             ) {
+            System.out.println(stu.finalGrade());
+        }
+    }
+}
+class student{
+    protected double regular;
+    protected double finalMark;
+    public double finalGrade(){
+        return 0;
+    }
+
+    public student(double regular, double finalMark) {
+        this.regular = regular;
+        this.finalMark = finalMark;
+    }
+}
+
+class stuOfAI extends student{
+    public stuOfAI(double regular, double finalMark) {
+        super(regular, finalMark);
+    }
+
+    @Override
+    public double finalGrade(){
+        return 0.3*this.regular+0.7*this.finalMark;
+    }
+}
+
+
+class stuOfEC extends student{
+    public stuOfEC(double regular, double finalMark) {
+        super(regular, finalMark);
+    }
+
+    @Override
+    public double finalGrade(){
+        return 0.5*this.regular+0.5*this.finalMark;
+    }
+}
+```
+
+这样的话，所有学生都能在一个数组中维护，并且有各自的方法来计算成绩
+
+
+
+⭐应用场景②：子类中有共同的方法，如tostring方法，我们可以利用多态来将此方法提取出来放到父类中，简化代码【善用this】
+
+在父类中覆写tostring方法如下
+
+```java
+@Override
+    public String toString() {
+        return "平时成绩："+this.regular+",期末考试成绩："+this.finalMark+"\n最终成绩："+this.finalGrade();
+    }
+```
+
+我们就可以在遍历中，student对象调用此方法还能调用正确的期末成绩计算方法
+
+
+
+## final
+
+当使用final关键字来修饰类、方法以及变量时候，默认其不能再被改变
+
+变量——其初始化有两种方法，如下
+
+```java
+final int age=0;
+```
+
+```java
+final int age;
+//在构造方法中进行赋值
+public student(age){
+	this.age=age;
+}
+```
+
+类——用final修饰完之后，此类不允许被继承
+
+```java
+final class lastSon(){
+	
+}
+```
+
+方法——用final修饰之后，此方法不能被覆写【以上面的学生最终成绩的方法为例】
+
+```java
+public final double finalGrade(){
+        return 0;
+    }
+```
+
+
+
+# abstract
 
