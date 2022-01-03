@@ -1,4 +1,4 @@
-package study.arraysAndStrings02;/*
+package study.note02.arraysAndStrings02;/*
  *@Auther: wzy
  *@Date:2021/12/27 -12-27
  *@Descreption: study.note02

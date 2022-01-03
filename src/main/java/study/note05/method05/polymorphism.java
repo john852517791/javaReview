@@ -1,7 +1,7 @@
-package study.method05;/*
+package study.note05.method05;/*
  *@Auther: wzy
  *@Date:2021/12/31 -12-31
- *@Descreption: study.method05
+ *@Descreption: study.note05.method05
  *@Version: 1.0
  */
 

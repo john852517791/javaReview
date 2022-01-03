@@ -1,4 +1,4 @@
-package study.objectOriented04;/*
+package study.note04.objectOriented04;/*
  *@Auther: wzy
  *@Date:2021/12/30 -12-30
  *@Descreption: study.note04

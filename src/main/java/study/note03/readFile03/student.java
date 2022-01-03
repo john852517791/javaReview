@@ -1,4 +1,4 @@
-package study.readFile03;/*
+package study.note03.readFile03;/*
  *@Auther: wzy
  *@Date:2021/12/28 -12-28
  *@Descreption: study.note03

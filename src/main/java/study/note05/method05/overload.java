@@ -1,4 +1,4 @@
-package study.method05;/*
+package study.note05.method05;/*
  *@Auther: wzy
  *@Date:2021/12/30 -12-30
  *@Descreption: study.note05

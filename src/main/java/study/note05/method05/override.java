@@ -1,11 +1,11 @@
-package study.method05;/*
+package study.note05.method05;/*
  *@Auther: wzy
  *@Date:2021/12/30 -12-30
  *@Descreption: study.note05
  *@Version: 1.0
  */
 
-import study.objectOriented04.person;
+import study.note04.objectOriented04.person;
 
 public class override extends person {
     public static void main(String[] args) {

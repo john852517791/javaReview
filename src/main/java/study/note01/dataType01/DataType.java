@@ -1,4 +1,4 @@
-package study.dataType01;/*
+package study.note01.dataType01;/*
  *@Auther: wzy
  *@Date:2021/12/27 -12-27
  *@Descreption: study.note01
